@@ -51,6 +51,7 @@ class BasePage:
     def get_url(self, url):
         return self.driver.get(url)
 
+    @allure.step('Переключение на новою вкладку')
     def switch_to_new_window(self):
         current_window = self.driver.current_window_handle
         self.find_window()
@@ -58,9 +59,11 @@ class BasePage:
         new_window = next(window for window in all_windows if window != current_window)
         self.driver.switch_to.window(new_window)
 
+    @allure.step('Поиск вкладки')
     def find_window(self, time=10):
         return WebDriverWait(self.driver, time).until(expected_conditions.number_of_windows_to_be(2))
 
+    @allure.step('Получение текущего url')
     def get_current_url(self):
         current_url = self.driver.current_url
         return current_url

@@ -13,10 +13,6 @@ class Answers:
     ANSWER_7 = 'Да, обязательно. Всем самокатов! И Москве, и Московской области.'
 
 
-class OrderDetails:
-    pass
-
-
 class Url:
     MAIN_PAGE_URL = "https://qa-scooter.praktikum-services.ru"
     ORDER_PAGE_URL = "https://qa-scooter.praktikum-services.ru/order"

@@ -1,11 +1,7 @@
 import pytest
 import allure
 from data import Answers, Url
-from locators.main_page_locators import MainPageLocators
-from locators.additional_locators import AdditionalLocators
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions
-from selenium import webdriver
+
 
 
 
@@ -26,8 +22,7 @@ class TestMainPage:
     @allure.description('На главной странице ищем вопрос и проверяем, что ответ соответствует')
     def test_questions(self, main_page, num, expected_result):
         main_page.get_url(Url.MAIN_PAGE_URL)
-        result = main_page.click_on_question_get_answer(
-            MainPageLocators.QUESTION_LOCATOR, MainPageLocators.ANSWER_LOCATOR, num)
+        result = main_page.click_on_question_get_answer(num)
         assert main_page.check_answer(result, expected_result)
 
 
